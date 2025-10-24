@@ -252,7 +252,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get pom => 'پمپ';
 
   @override
-  String get mod => 'حالت مدیریت';
+  String get mod => 'مدیریت';
 
   @override
   String get rah => 'راه اندازی با دور تند';

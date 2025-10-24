@@ -252,7 +252,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pom => 'pump';
 
   @override
-  String get mod => 'Management mode';
+  String get mod => 'Management';
 
   @override
   String get rah => 'High-speed start-up';

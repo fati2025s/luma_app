@@ -2193,7 +2193,7 @@ class _LocationPageState extends State<LocationPage> {
                                                                       ),
                                                                     ],
                                                                   ),
-                                                                  SizedBox(width: size.width * 0.03),
+                                                                  SizedBox(width: size.width * 0.015),
                                                                   // --- Module Controls (Left Side) ---
                                                                   Column(
                                                                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -2294,18 +2294,17 @@ class _LocationPageState extends State<LocationPage> {
                                                                     ],
                                                                   ),
 
-                                                                  // --- Lamp Grid or AP Mode Button (Right Side) ---
                                                                   (lumcyModule.mode != 'F')
                                                                       ? SizedBox(
                                                                     // Dynamically adjust height based on number of lamps
                                                                     height: (lumcyModule.is_turn_lamp_3 == null && lumcyModule.is_turn_lamp_4 == null)
-                                                                        ? size.width * 0.180 // Smaller height for 2 lamps
-                                                                        : size.width * 0.300, // Full height for 3/4 lamps
-                                                                    width: size.width * 0.250,
+                                                                        ? size.width * 0.10 // Smaller height for 2 lamps
+                                                                        : size.width * 0.250, // Full height for 3/4 lamps
+                                                                    width: size.width * 0.20,
                                                                     child: GridView.count(
                                                                       crossAxisCount: 2,
-                                                                      mainAxisSpacing: 10,
-                                                                      crossAxisSpacing: 10,
+                                                                      mainAxisSpacing: 5,
+                                                                      crossAxisSpacing: 5,
                                                                       physics: const NeverScrollableScrollPhysics(), // Important to prevent inner scrolling
                                                                       children: [
                                                                         if (lumcyModule.is_turn_lamp_1 != null)
@@ -2397,7 +2396,7 @@ class _LocationPageState extends State<LocationPage> {
                                                                   )
                                                                       : SizedBox(
                                                                     height: size.width * 0.300,
-                                                                    width: size.width * 0.300,
+                                                                    width: size.width * 0.210,
                                                                     child: Center(
                                                                       child: Opacity(
                                                                         opacity: (lumcyModule.is_ap_mode) ? 1 : 0.75,
@@ -2405,7 +2404,7 @@ class _LocationPageState extends State<LocationPage> {
                                                                           onTap: () => toggleIsApModeLumcyModule(lumcyModule),
                                                                           child: Container(
                                                                             width: size.width * 0.250,
-                                                                            height: size.height * 0.040,
+                                                                            height: size.height * 0.050,
                                                                             decoration: BoxDecoration(
                                                                               gradient: const LinearGradient(
                                                                                   colors: [Color(0xFF030585), Color(0xFF272AF5)]),

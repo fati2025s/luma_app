@@ -548,7 +548,7 @@ abstract class AppLocalizations {
   /// No description provided for @mod.
   ///
   /// In en, this message translates to:
-  /// **'Management mode'**
+  /// **'Management'**
   String get mod;
 
   /// No description provided for @rah.

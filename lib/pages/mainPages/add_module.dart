@@ -54,7 +54,11 @@ class AddProduct extends StatefulWidget {
 }
 
 class _AddLocationOrProductState extends State<AddProduct> {
-  String addDropdownButtonValue = 'محصول ماژول روشنایی (لومسی)';
+  // ************************************************
+  // FIX: Changed the initial value to a locale-agnostic identifier ('lamp')
+  // This identifier is constant regardless of the app's language, fixing the assertion error.
+  String addDropdownButtonValue = 'lamp';
+  // ************************************************
   int? locationIdDropdownButtonValue;
   late Future<List<LocationModel>> futureLocationModels;
   TextEditingController textEditingController1 = TextEditingController();
@@ -469,7 +473,9 @@ class _AddLocationOrProductState extends State<AddProduct> {
                           value: addDropdownButtonValue,
                           items: [
                             DropdownMenuItem(
-                              value: AppLocalizations.of(context)!.lamp,
+                              // ************************************************
+                              // FIX: Changed value to locale-agnostic identifier 'lamp'
+                              value: 'lamp',
                               child: Align(
                                 alignment: Alignment.centerRight,
                                 child: Text(
@@ -479,7 +485,9 @@ class _AddLocationOrProductState extends State<AddProduct> {
                               ),
                             ),
                             DropdownMenuItem(
-                              value: AppLocalizations.of(context)!.coler,
+                              // ************************************************
+                              // FIX: Changed value to locale-agnostic identifier 'coler'
+                              value: 'coler',
                               child: Align(
                                 alignment: Alignment.centerRight,
                                 child: Text(
@@ -493,6 +501,7 @@ class _AddLocationOrProductState extends State<AddProduct> {
                           onChanged: (newValue) {
                             if (newValue != null) {
                               setState(() {
+                                // Update the state with the fixed identifier ('lamp' or 'coler')
                                 addDropdownButtonValue = newValue;
                               });
                             }
@@ -501,24 +510,27 @@ class _AddLocationOrProductState extends State<AddProduct> {
                       ),
                     ),
                     SizedBox(height: size.height * 0.02),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        textDirection: TextDirection.rtl,
-                        children: [
-                          Text(
-                            (addDropdownButtonValue == AppLocalizations.of(context)!.lamp)
-                                ? AppLocalizations.of(context)!.lamp1
-                                : AppLocalizations.of(context)!.coler1,
-                            textDirection: TextDirection.rtl,
-                            textAlign: TextAlign.right,
-                            style: TextStyle(
-                              color: const Color(0xFF1D1A39),
-                              fontFamily: "Sans",
-                              fontSize: size.width * 0.033,
-                            ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      textDirection: TextDirection.rtl,
+                      children: [
+                        Text(
+                          // ************************************************
+                          // FIX: Compare with the identifier 'lamp'
+                          (addDropdownButtonValue == 'lamp')
+                              ? AppLocalizations.of(context)!.lamp1
+                              : AppLocalizations.of(context)!.coler1,
+                          // ************************************************
+                          textDirection: TextDirection.rtl,
+                          textAlign: TextAlign.right,
+                          style: TextStyle(
+                            color: const Color(0xFF1D1A39),
+                            fontFamily: "Sans",
+                            fontSize: size.width * 0.033,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
+                    ),
                     SizedBox(height: size.height * 0.01),
                     Text(
                       "${widget.Locationcard.location}",
@@ -564,9 +576,12 @@ class _AddLocationOrProductState extends State<AddProduct> {
                       textDirection: TextDirection.rtl,
                       children: [
                         Text(
-                          (addDropdownButtonValue == AppLocalizations.of(context)!.lamp)
-                          ? AppLocalizations.of(context)!.lamp2
-                            : AppLocalizations.of(context)!.coler2,
+                          // ************************************************
+                          // FIX: Compare with the identifier 'lamp'
+                          (addDropdownButtonValue == 'lamp')
+                              ? AppLocalizations.of(context)!.lamp2
+                              : AppLocalizations.of(context)!.coler2,
+                          // ************************************************
 
                           textDirection: TextDirection.rtl,
                           textAlign: TextAlign.right,
@@ -586,9 +601,12 @@ class _AddLocationOrProductState extends State<AddProduct> {
                           border: const UnderlineInputBorder(),
                           filled: false,
                           alignLabelWithHint: true,
-                          hintText: (addDropdownButtonValue == AppLocalizations.of(context)!.lamp)
+                          // ************************************************
+                          // FIX: Compare with the identifier 'lamp'
+                          hintText: (addDropdownButtonValue == 'lamp')
                               ? AppLocalizations.of(context)!.lamp3
                               : AppLocalizations.of(context)!.coler3,
+                          // ************************************************
 
                           hintTextDirection: TextDirection.rtl,
                           hintStyle: TextStyle(
@@ -602,9 +620,12 @@ class _AddLocationOrProductState extends State<AddProduct> {
                       textDirection: TextDirection.rtl,
                       children: [
                         Text(
-                          (addDropdownButtonValue == AppLocalizations.of(context)!.lamp)
+                          // ************************************************
+                          // FIX: Compare with the identifier 'lamp'
+                          (addDropdownButtonValue == 'lamp')
                               ? AppLocalizations.of(context)!.lamp4
                               : AppLocalizations.of(context)!.coler4,
+                          // ************************************************
 
                           textDirection: TextDirection.rtl,
                           textAlign: TextAlign.right,
@@ -616,23 +637,26 @@ class _AddLocationOrProductState extends State<AddProduct> {
                         ),
                       ],
                     ),
-                      TextFormField(
-                        textDirection: TextDirection.rtl,
-                        textAlign: TextAlign.right,
-                        controller: textEditingController2,
-                        decoration: InputDecoration(
-                            border: const UnderlineInputBorder(),
-                            filled: false,
-                            alignLabelWithHint: true,
-                            hintText: (addDropdownButtonValue == AppLocalizations.of(context)!.lamp)
-                                ? AppLocalizations.of(context)!.lamp5
-                                : AppLocalizations.of(context)!.coler5,
-                            hintTextDirection: TextDirection.rtl,
-                            hintStyle: TextStyle(
-                                fontSize: size.width * 0.025,
-                                fontFamily: 'Sans',
-                                color: const Color(0xFF1D1A39).withOpacity(0.5))),
-                      ),
+                    TextFormField(
+                      textDirection: TextDirection.rtl,
+                      textAlign: TextAlign.right,
+                      controller: textEditingController2,
+                      decoration: InputDecoration(
+                          border: const UnderlineInputBorder(),
+                          filled: false,
+                          alignLabelWithHint: true,
+                          // ************************************************
+                          // FIX: Compare with the identifier 'lamp'
+                          hintText: (addDropdownButtonValue == 'lamp')
+                              ? AppLocalizations.of(context)!.lamp5
+                              : AppLocalizations.of(context)!.coler5,
+                          // ************************************************
+                          hintTextDirection: TextDirection.rtl,
+                          hintStyle: TextStyle(
+                              fontSize: size.width * 0.025,
+                              fontFamily: 'Sans',
+                              color: const Color(0xFF1D1A39).withOpacity(0.5))),
+                    ),
                     SizedBox(height: size.height * 0.036),
                     GestureDetector(
                       child: Container(
@@ -663,13 +687,13 @@ class _AddLocationOrProductState extends State<AddProduct> {
                         ),
                       ),
                       onTap: () {
-                        if (addDropdownButtonValue == AppLocalizations.of(context)!.lamp) {
+                        if (addDropdownButtonValue == 'lamp') {
                           addLumcyModule();
                         } else {
                           if(coler == 1)
-                            {
-                              _showErrorDialog(AppLocalizations.of(context)!.error11);
-                            }
+                          {
+                            _showErrorDialog(AppLocalizations.of(context)!.error11);
+                          }
                           else {
                             addlumakeyModulesss();
                           }
