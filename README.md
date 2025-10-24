@@ -96,4 +96,4 @@ Select the type of module you want (e.g., lighting module or cooling module).
 Add and activate the new module to the current location by scanning the QR/barcode or manually entering the activation code (Active Code).
 
 **information**
-![User Page](https://github.com/fati2025s/luma_app/tree/main/images/screenshots/10.jpg)
+![User Page](https://raw.githubusercontent.com/fati2025s/luma_app/main/images/screenshots/10.jpg)
